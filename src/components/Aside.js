@@ -4,7 +4,12 @@ import { FavoritesContext } from "./../contexts/Favorites";
 
 import Favorite from "./Favorite";
 const Aside = () => {
-  const { favorites } = useContext(FavoritesContext);
+  const { favorites, remove } = useContext(FavoritesContext);
+
+  const removeFavorite = (id) => {
+    remove(id);
+  };
+
   return (
     <>
       <Col
@@ -16,7 +21,11 @@ const Aside = () => {
           <h4>Favoritos</h4>
           {favorites.length
             ? favorites.map((favorite) => (
-                <Favorite key={favorite.id} {...favorite} />
+                <Favorite
+                  key={favorite.id}
+                  {...favorite}
+                  removeFavorite={removeFavorite}
+                />
               ))
             : null}
         </Row>
