@@ -1,7 +1,13 @@
+/* React at the top */
 import { useContext } from "react";
+
 import { useHistory } from "react-router-dom";
-import { AuthContext } from "../contexts/Auth";
+
+/* Bootstrap */
 import { Button, Navbar } from "react-bootstrap";
+
+/* Personal Context */
+import { AuthContext } from "../contexts/Auth";
 const Nav = () => {
   const history = useHistory();
   const { auth, exit } = useContext(AuthContext);

@@ -1,6 +1,9 @@
 import React, { createContext, useState, useEffect } from "react";
-import { setAuthStorage, getAuthStorage } from "./../utils/auth";
-import { removeAuthStorage } from "./../utils/auth";
+import {
+  setAuthStorage,
+  getAuthStorage,
+  removeAuthStorage,
+} from "./../utils/auth";
 
 export const AuthContext = createContext({
   auth: null,

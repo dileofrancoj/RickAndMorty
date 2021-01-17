@@ -1,18 +1,21 @@
 import { useState, useContext, useEffect } from "react";
+
 import { Row, Col, Button, Form } from "react-bootstrap";
-import { schema } from "./schema";
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
+import { useForm } from "react-hook-form";
+
 import { AuthContext } from "../../contexts/Auth";
 import { getAuthStorage } from "./../../utils/auth";
+import { schema } from "./schema";
 
 const setInitialState = { username: "", password: "" };
 
 const Login = () => {
-  const history = useHistory();
+  const [user, setUser] = useState(setInitialState);
   const { auth, authenticate } = useContext(AuthContext);
 
+  const history = useHistory();
   useEffect(() => {
     if (!!getAuthStorage()) history.push("/dashboard");
   }, [auth]);
@@ -20,7 +23,6 @@ const Login = () => {
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
-  const [user, setUser] = useState(setInitialState);
 
   const handlerUser = (e) => {
     setUser({
