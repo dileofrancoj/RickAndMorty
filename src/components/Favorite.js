@@ -17,7 +17,7 @@ const Favorite = ({ id, name, image, status, removeFavorite }) => {
             {name} - {status}
           </p>
           <i
-            class="fas fa-trash text-danger"
+            className="fas fa-trash text-danger"
             style={{ cursor: "pointer", fontSize: "1.5em" }}
             onClick={remove}
           ></i>

@@ -17,9 +17,12 @@ const Character = ({ id, name, status, species, gender, image, origin }) => {
     };
     add(character);
   };
+
+  const isFavorite = () => !!favorites.find((favorite) => favorite.id === id);
+
   return (
     <Col md={4} className="mt-3 mb-3">
-      <Card style={{ width: "18rem" }}>
+      <Card>
         <Card.Img variant="top" src={image} />
         <Card.Body>
           <Card.Title>
@@ -31,11 +34,15 @@ const Character = ({ id, name, status, species, gender, image, origin }) => {
           <Button variant="success" block>
             Ver más
           </Button>
-          <i
-            onClick={addFavorite}
-            className="far fa-star mt-3 d-block "
-            style={{ cursor: "pointer" }}
-          ></i>
+          {isFavorite() ? (
+            <i className={`fas fa-star mt-3 d-block text-warning`}></i>
+          ) : (
+            <i
+              onClick={addFavorite}
+              style={{ cursor: "pointer" }}
+              className={`fas fa-star mt-3 d-block text-dark" `}
+            ></i>
+          )}
         </Card.Body>
       </Card>
     </Col>

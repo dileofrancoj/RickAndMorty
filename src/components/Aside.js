@@ -13,9 +13,9 @@ const Aside = () => {
   return (
     <>
       <Col
-        className="p-4 text-center m-auto"
+        className="p-4 text-center m-auto vh-100"
         md={4}
-        style={{ position: "fixed" }}
+        style={{ position: "fixed", overflow: "scroll" }}
       >
         <Row className="justify-content-center">
           <h4>Favoritos</h4>
