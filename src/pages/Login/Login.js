@@ -8,11 +8,12 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../contexts/Auth";
 import { getAuthStorage } from "./../../utils/auth";
 import { schema } from "./schema";
-
+import { USERNAME, PASSWORD } from "./../../constants";
 const setInitialState = { username: "", password: "" };
 
 const Login = () => {
   const [user, setUser] = useState(setInitialState);
+  const [message, setMessage] = useState(null);
   const { auth, authenticate } = useContext(AuthContext);
 
   const history = useHistory();
@@ -32,8 +33,13 @@ const Login = () => {
   };
   const login = () => {
     const { username, password } = user;
-    authenticate(username, password);
-    history.push("/dashboard");
+    if (username === USERNAME && password === PASSWORD) {
+      authenticate(username, password);
+      history.push("/dashboard");
+    }
+    setMessage(
+      "Usuario o contraseña incorrecto, revisa el archivo de constants"
+    );
   };
   return (
     <Row className="justify-content-center vh-100 align-items-center m-0 p-0">
@@ -62,6 +68,7 @@ const Login = () => {
             Ingresar
           </Button>
         </Form>
+        {message ? <span class="text-dangermt-3">{message}</span> : ""}
       </Col>
     </Row>
   );

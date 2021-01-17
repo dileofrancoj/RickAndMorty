@@ -5,10 +5,10 @@ import { Row } from "react-bootstrap";
 /* Personal Hooks */
 import { useFetch } from "./../../hooks/useFetch";
 /* Personal Components */
-import Aside from "./../../components/Aside";
+import Aside from "./../../components/Layout/Aside";
 import Characters from "./../../components/Characters";
-import Loading from "./../../components/Loading";
-import Head from "./../../components/Head";
+import Loading from "../../components/Common/Loading";
+import Head from "../../components/Common/Head";
 const Dashboard = () => {
   const [url, setUrl] = useState("character");
   const [data, fetching] = useFetch(url);

@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { Row, Col } from "react-bootstrap";
-import { FavoritesContext } from "./../contexts/Favorites";
+import { FavoritesContext } from "./../../contexts/Favorites";
 
-import Favorite from "./Favorite";
+import Favorite from "./../Favorite";
 const Aside = () => {
   const { favorites, remove } = useContext(FavoritesContext);
 

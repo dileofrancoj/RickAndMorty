@@ -10,7 +10,7 @@ import Login from "./../pages/Login";
 import Dashboard from "./../pages/Dashboard";
 import Character from "../pages/Character";
 import PrivateRoute from "./PrivateRoute";
-import Nav from "./../components/Navbar";
+import Nav from "./../components/Layout/Navbar";
 const AppRouter = () => {
   return (
     <Router>

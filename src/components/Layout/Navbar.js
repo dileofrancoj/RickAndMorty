@@ -7,7 +7,7 @@ import { useHistory, Link } from "react-router-dom";
 import { Navbar } from "react-bootstrap";
 
 /* Personal Context */
-import { AuthContext } from "../contexts/Auth";
+import { AuthContext } from "./../../contexts/Auth";
 const Nav = () => {
   const history = useHistory();
   const { auth, exit } = useContext(AuthContext);
