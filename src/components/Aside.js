@@ -13,21 +13,26 @@ const Aside = () => {
   return (
     <>
       <Col
-        className="p-4 text-center m-auto vh-100"
+        className="text-center m-auto vh-100"
         md={4}
-        style={{ position: "fixed", overflow: "scroll" }}
+        style={{
+          position: "fixed",
+          overflow: "scroll",
+        }}
       >
-        <Row className="justify-content-center">
-          <h4>Favoritos</h4>
-          {favorites.length
-            ? favorites.map((favorite) => (
-                <Favorite
-                  key={favorite.id}
-                  {...favorite}
-                  removeFavorite={removeFavorite}
-                />
-              ))
-            : null}
+        <Row className="justify-content-center mb-4">
+          <h4 className="text-center mb-3">Favoritos</h4>
+          {favorites.length ? (
+            favorites.map((favorite) => (
+              <Favorite
+                key={favorite.id}
+                {...favorite}
+                removeFavorite={removeFavorite}
+              />
+            ))
+          ) : (
+            <h4>No hay favoritos ...</h4>
+          )}
         </Row>
       </Col>
     </>

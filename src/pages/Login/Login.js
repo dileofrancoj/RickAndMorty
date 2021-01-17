@@ -40,7 +40,6 @@ const Login = () => {
       <Col md={4} sm={12}>
         <Form onSubmit={handleSubmit(login)}>
           <Form.Group>
-            <Form.Label>Usuario *</Form.Label>
             <Form.Control
               ref={register}
               type="text"
@@ -51,7 +50,6 @@ const Login = () => {
             <label className="text-danger">{errors.username?.message}</label>
           </Form.Group>
           <Form.Group>
-            <Form.Label>Password *</Form.Label>
             <Form.Control
               type="password"
               ref={register}
@@ -60,7 +58,7 @@ const Login = () => {
               placeholder="**********"
             />
           </Form.Group>
-          <Button type="submit" variant="primary" className="mt-3 w-100">
+          <Button type="submit" variant="dark" className="mt-3 w-100">
             Ingresar
           </Button>
         </Form>

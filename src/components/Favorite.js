@@ -1,8 +1,8 @@
-import { Col, Button, Toast } from "react-bootstrap";
+import { Col, Toast } from "react-bootstrap";
 const Favorite = ({ id, name, image, status, removeFavorite }) => {
   const remove = () => removeFavorite(id);
   return (
-    <Col md={5}>
+    <Col md={5} sm={12}>
       <Toast className="mb-3 text-center" style={{ width: "250px" }}>
         <Toast.Header closeButton={false}>
           <img

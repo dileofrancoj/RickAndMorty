@@ -8,15 +8,18 @@ import {
 import { FavoritesProvider } from "./../contexts/Favorites";
 import Login from "./../pages/Login";
 import Dashboard from "./../pages/Dashboard";
+import Character from "../pages/Character";
 import PrivateRoute from "./PrivateRoute";
-
+import Nav from "./../components/Navbar";
 const AppRouter = () => {
   return (
     <Router>
       <Switch>
         <Route path="/login" component={Login} />
         <FavoritesProvider>
-          <PrivateRoute path="/dashboard" component={Dashboard} dato={"dato"} />
+          <Nav />
+          <PrivateRoute path="/dashboard" exact component={Dashboard} />
+          <PrivateRoute path="/character/:id" component={Character} />
         </FavoritesProvider>
         <Redirect to="/login" />
       </Switch>
