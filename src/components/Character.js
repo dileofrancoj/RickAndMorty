@@ -1,5 +1,22 @@
+import { useContext } from "react";
+import { FavoritesContext } from "./../contexts/Favorites";
 import { Col, Card, Button } from "react-bootstrap";
+
 const Character = ({ id, name, status, species, gender, image, origin }) => {
+  const { favorites, add } = useContext(FavoritesContext);
+
+  const addFavorite = () => {
+    const character = {
+      id,
+      name,
+      status,
+      species,
+      gender,
+      image,
+      origin,
+    };
+    add(character);
+  };
   return (
     <Col md={4} className="mt-3 mb-3">
       <Card style={{ width: "18rem" }}>
@@ -14,6 +31,11 @@ const Character = ({ id, name, status, species, gender, image, origin }) => {
           <Button variant="success" block>
             Ver más
           </Button>
+          <i
+            onClick={addFavorite}
+            className="far fa-star mt-3 d-block "
+            style={{ cursor: "pointer" }}
+          ></i>
         </Card.Body>
       </Card>
     </Col>
