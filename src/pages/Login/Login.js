@@ -33,17 +33,16 @@ const Login = () => {
   };
   const login = () => {
     const { username, password } = user;
+    console.log(username, password);
     if (username === USERNAME && password === PASSWORD) {
       authenticate(username, password);
       history.push("/dashboard");
     }
-    setMessage(
-      "Usuario o contraseña incorrecto, revisa el archivo de constants"
-    );
+    setMessage("Usuario o contraseña incorrectos");
   };
   return (
     <Row className="justify-content-center vh-100 align-items-center m-0 p-0">
-      <Col md={4} sm={12}>
+      <Col md={3} sm={12}>
         <Form onSubmit={handleSubmit(login)}>
           <Form.Group>
             <Form.Control
@@ -51,7 +50,7 @@ const Login = () => {
               type="text"
               name="username"
               onChange={handlerUser}
-              placeholder="Ingresa tu usuario"
+              placeholder="Usuario"
             />
             <label className="text-danger">{errors.username?.message}</label>
           </Form.Group>
@@ -61,14 +60,14 @@ const Login = () => {
               ref={register}
               name="password"
               onChange={handlerUser}
-              placeholder="**********"
+              placeholder="password"
             />
           </Form.Group>
           <Button type="submit" variant="dark" className="mt-3 w-100">
             Ingresar
           </Button>
         </Form>
-        {message ? <span class="text-dangermt-3">{message}</span> : ""}
+        {message}
       </Col>
     </Row>
   );
